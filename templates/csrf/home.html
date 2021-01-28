@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+    <h2>Bem-vindo {{user}}!</h2>
+     <form method="post">
+         <textarea name="post" rows="5" cols="40"></textarea>
+         <br/>
+         <input type="submit" value="Publicar" />
+     </form>
+
+    <h3>Timeline</h3>
+    <ul>
+        {% if posts %}
+            {%for p in posts %}
+                <li>{{p}} (autor: {{user}})</li>
+            {% endfor %}
+        {% else %}
+            <p>Você ainda não fez publicações</p>
+        {% endif %}
+    </ul>
+</body>
+</html>

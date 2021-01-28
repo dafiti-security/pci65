@@ -1,0 +1,13 @@
+<!doctype html>
+<html>
+    <head>
+        <title>News</title>
+    </head>
+    <body>
+        <ul>
+        {% for n in news %}
+            <li>{{ n | safe }}</li>
+        {% endfor %}
+        </ul>
+    </body>
+</html>

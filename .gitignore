@@ -1,0 +1,6 @@
+.__pyc__
+venv
+env
+.idea
+.code
+*.db
