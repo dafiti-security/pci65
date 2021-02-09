@@ -103,7 +103,7 @@ if __name__ == '__main__':
 # cursor.fetchone()
 
 # consulta (simples): 1234' or 1=1 --
-# cursor.execute("SELECT cpf, nome FROM usuarios WHERE cpf = ?", cpf)
+# cursor.execute("SELECT cpf, nome FROM usuarios WHERE cpf = ?", (cpf,))
 # cursor.fetchmany()
 
 # consulta (union): 1234' or 1=1 UNION SELECT type, sql FROM SQLITE_MASTER --
