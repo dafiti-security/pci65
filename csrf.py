@@ -1,10 +1,8 @@
 from flask import Flask, session, redirect, url_for, request, render_template
-from flask_cors import CORS
 from markupsafe import escape
 
 app = Flask(__name__)
 app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
-CORS(app)
 
 posts = {}
 
@@ -43,6 +41,11 @@ def new_post():
 def logout():
     session.pop('username', None)
     return redirect(url_for('index'))
+
+
+@app.route('/phishing')
+def phishing():
+    return render_template('csrf/phishing.html')
 
 
 if __name__ == '__main__':
