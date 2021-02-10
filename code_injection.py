@@ -38,7 +38,9 @@ def login():
     cursor = conexao.cursor()
 
     try:
-        cursor.execute("SELECT nome FROM usuarios WHERE nome = '{}' AND senha = '{}'".format(usuario, senha))
+        query = "SELECT nome FROM usuarios WHERE nome = '{}' AND senha = '{}'".format(usuario, senha)
+        print('query: {}'.format(query))
+        cursor.execute(query)
         sucesso = bool(cursor.fetchall())
     except:
         sucesso = False
@@ -59,7 +61,9 @@ def consultar_por_cpf():
     cursor = conexao.cursor()
 
     try:
-        cursor.execute("SELECT cpf, nome FROM usuarios WHERE cpf = '{}'".format(cpf))
+        query = "SELECT cpf, nome FROM usuarios WHERE cpf = '{}'".format(cpf)
+        print('query: {}'.format(query))
+        cursor.execute(query)
         usuarios = cursor.fetchall()
     except:
         traceback.print_exc()
@@ -78,7 +82,9 @@ def consulta_arquivos():
     arquivo = request.args.get('arquivo', '')
 
     try:
-        saida = subprocess.check_output('find . -name {}'.format(arquivo), stderr=subprocess.STDOUT, shell=True).decode()
+        cmd = 'find . -name {}'.format(arquivo)
+        print('command: {}'.format(cmd))
+        saida = subprocess.check_output(cmd, stderr=subprocess.STDOUT, shell=True).decode()
     except:
         saida = None
 
